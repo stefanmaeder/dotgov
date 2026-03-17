@@ -1,6 +1,7 @@
 ## Beispiel-Daten
 
 - Jeder Paragraph wird einzeln erfasst und ggf. in seine Gliederungseinheiten zerlegt: u.a. Absätze, Sätze, Nummern und Buchstaben
+- Erfassung von Verweisen auf andere Rechtsnormen, Paragraphen etc.
 
 ```json
 {
