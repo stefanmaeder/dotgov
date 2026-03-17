@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+    @font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("Inter.ttf") format("ttf");
+}
+.reveal {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.5pt;
+	  --dot-bg: white;
+  --dot-color: black;
+  --dot-size: 1px;
+  --dot-space: 22px;
+	background:
+		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		var(--dot-color);
+}
+.reveal .slides section.present {
+  max-width: 800px;
+  left: 50% !important;
+  transform: translateX(-50%);
+}
+.reveal p,
+.reveal li {
+  line-height: 2;
+}
+      .reveal ul,
+.reveal ol {
+  text-align: left;
+}
+  </style>
+</head>
+
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+<section
+  data-markdown="slides.md"
+  data-separator="^---$"
+  data-separator-vertical="^--$">
+</section>
+
+  </div>
+</div>
+
+<script>
+
+  
+mermaid.initialize({ startOnLoad: true });
+
+Reveal.on('slidechanged', () => {
+  mermaid.init();
+});
+
+Reveal.on('ready', () => {
+  mermaid.init();
+});
+  
+Reveal.initialize({
+  progress: true,
+  hash: true,
+	  transition: 'slide',          // main style
+  transitionSpeed: 'default',
+  plugins: [ RevealMarkdown ]
+});
+
+
+</script>
+
+</body>
+</html>
