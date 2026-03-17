@@ -5,11 +5,11 @@
 
 ```json
 {
-"id": "blv2009.section3",
-"heading": "Mutterschutz",
-"provision_text": "Zeiten des Mutterschutzes sind auf Zeiten anzurechnen,die nach dieser Verordnung Voraussetzung für eine Einstellung oder für die berufliche Entwicklung sind. Die Verlängerung eines Vorbereitungsdienstes nach § 15 Absatz 1 Satz 1 Nummer 2 bleibt unberührt.",
+"id": "blv2009.section24.subsection2.sentence1.letter1",
+"heading": "Zulassung zur höheren Laufbahn bei Besitz einer Berufsausbildung oder einer Hochschulausbildung",
+"provision_text": "im mittleren Dienst die sonstigen Voraussetzungen nach § 17 Absatz 3 Nummer 2 des Bundesbeamtengesetzes,",
 "refers_to":[
-{"id": "blv2009.section15.subsection1.sentence1.number2"}
+{"id": "bbgX.section17.subsection3.number2"}
 ]
 }
 ```
