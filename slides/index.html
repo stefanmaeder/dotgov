@@ -48,6 +48,87 @@
 .reveal pre {
   text-align: left;
 }
+
+		  /* Impressum-Button */
+  #impressum-button {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 8px 14px;
+    font-size: 14px;
+    border: none;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  #impressum-button:hover {
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  /* Overlay */
+  #impressum-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  #impressum-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Dialog */
+  #impressum-dialog {
+    width: min(560px, 90vw);
+    max-height: 80vh;
+    overflow-y: auto;
+    background: #fff;
+    color: #111;
+    border-radius: 16px;
+    padding: 24px 24px 20px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
+    position: relative;
+    font-family: sans-serif;
+    text-align: left;
+  }
+
+  #impressum-dialog h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 24px;
+  }
+
+  #impressum-dialog p {
+    margin: 0 0 12px;
+    line-height: 1.5;
+    font-size: 15px;
+  }
+
+  #impressum-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    cursor: pointer;
+    color: #444;
+  }
+
+  #impressum-close:hover {
+    color: #000;
+  }
+		#impressum-button {
+  bottom: 14px;
+}
   </style>
 </head>
 
@@ -86,8 +167,75 @@ Reveal.initialize({
   plugins: [ RevealMarkdown ]
 });
 
+	Reveal.on('ready', () => {
+  document.body.appendChild(document.getElementById('impressum-button'));
+  document.body.appendChild(document.getElementById('impressum-modal'));
+});
+	
 
 </script>
 
+<button id="impressum-button" type="button">Impressum</button>
+
+<div id="impressum-modal" aria-hidden="true">
+  <div id="impressum-dialog" role="dialog" aria-modal="true" aria-labelledby="impressum-title">
+    <button id="impressum-close" type="button" aria-label="Schließen">&times;</button>
+    <h2 id="impressum-title">Impressum</h2>
+
+    <p><strong>Max Mustermann GmbH</strong></p>
+    <p>
+      Musterstraße 12<br>
+      12345 Musterstadt<br>
+      Deutschland
+    </p>
+    <p>
+      Telefon: +49 123 456789<br>
+      E-Mail: info@example.com
+    </p>
+    <p>
+      Vertreten durch: Max Mustermann
+    </p>
+    <p>
+      Handelsregister: HRB 12345<br>
+      Registergericht: Amtsgericht Musterstadt
+    </p>
+    <p>
+      Umsatzsteuer-ID: DE123456789
+    </p>
+  </div>
+</div>
+
+<script>
+  const impressumButton = document.getElementById('impressum-button');
+  const impressumModal = document.getElementById('impressum-modal');
+  const impressumClose = document.getElementById('impressum-close');
+  const impressumDialog = document.getElementById('impressum-dialog');
+
+  function openImpressum() {
+    impressumModal.classList.add('active');
+    impressumModal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeImpressum() {
+    impressumModal.classList.remove('active');
+    impressumModal.setAttribute('aria-hidden', 'true');
+  }
+
+  impressumButton.addEventListener('click', openImpressum);
+  impressumClose.addEventListener('click', closeImpressum);
+
+  impressumModal.addEventListener('click', (event) => {
+    if (!impressumDialog.contains(event.target)) {
+      closeImpressum();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeImpressum();
+    }
+  });
+</script>
+	
 </body>
 </html>
