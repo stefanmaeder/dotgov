@@ -1,3 +1,5 @@
+## Beispiel-Daten (Export als JSON-Format)
+
 ```json
 {
 "id": "blv2024-07-24.section24.subsection2.sentence1.letter1",
